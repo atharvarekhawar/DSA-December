@@ -1,0 +1,20 @@
+class Solution{
+public:
+    //You need to complete this fucntion
+    
+    long long power(int N,int R)
+    {
+       int res=1;
+       
+       while(R>0){
+           if(R&1){
+               res=(1LL*(res) * (N)% (1000000000+7))% (1000000000+7);
+           }
+           N=(1LL*(N)% (1000000000+7)*(N)% (1000000000+7))% (1000000000+7);
+          R = R>>1; // bitwise dividing by 2;
+       }
+       return (res % (1000000000+7));
+        
+    }
+
+};

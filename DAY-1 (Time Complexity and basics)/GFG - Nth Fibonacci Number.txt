@@ -1,0 +1,10 @@
+class Solution {
+     
+  public:
+    long long int nthFibonacci(long long int n){
+         if(n==1 || n==0){
+             return n;
+         }
+           return nthFibonacci(n-1) + nthFibonacci(n-2);
+    }
+};

@@ -1,0 +1,43 @@
+class Solution {
+public:
+    string reverseWords(string s) {
+        vector<string>ans;
+        
+        string res="";
+        int n=s.size();
+        
+        for(int i=0;i<n;i++){        // pushing all words into vector 
+            if(s[i]==' '){
+                if(res=="")
+                    continue;
+                else
+                    ans.push_back(res);
+                res="";
+            }
+            else{
+                res+=s[i];      
+            }
+            
+            if(i==n-1 && res!=""){
+                ans.push_back(res);
+            }
+        }
+        
+        
+        
+        res="";
+        int size=ans.size();
+        
+        for(int i=size-1;i>=0;i--){        // connecting all words from vector in reverse order
+            if(i==0){
+                res+=ans[i];
+                break;
+            }
+            res+=ans[i]+" ";
+        }
+        
+        return res;
+       
+       
+    }
+};
