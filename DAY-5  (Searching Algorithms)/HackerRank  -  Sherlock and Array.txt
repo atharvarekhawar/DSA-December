@@ -1,0 +1,29 @@
+string balancedSums(vector<int> arr) {
+
+         int sum=0;
+       
+        for(int i=0;i<arr.size();i++){
+            sum+=arr[i];
+        }
+        
+        int csum=0;
+        
+        for(int i=0;i<arr.size();i++){
+
+            if(i==arr.size()-1){
+                if(csum==0){
+                    return "YES";
+                }
+            }
+
+            if(csum==(sum-(csum+arr[i])) && i!=arr.size()-1){
+                return "YES";
+            }
+
+            csum+=arr[i];
+
+        }
+
+        return "NO";
+}
+
