@@ -1,0 +1,55 @@
+class Solution {
+public:
+    string complexNumberMultiply(string num1, string num2) {
+        int ap[1];
+        int bp[1];
+
+        for(int i=0;i<num1.length();i++){
+            if(num1[i]=='+'){
+                ap[0]=i;
+                break;
+            }
+        }
+         for(int i=0;i<num2.length();i++){
+            if(num2[i]=='+'){
+                bp[0]=i;
+                break;
+            }
+        }
+
+        string a1="";
+        string a2="";
+
+        for(int i=0;i<ap[0];i++){
+            a1.push_back(num1[i]);
+        }
+        for(int i=ap[0]+1;i<num1.length()-1;i++){
+            a2.push_back(num1[i]);
+        }
+
+        string b1="";
+        string b2="";
+
+        for(int i=0;i<bp[0];i++){
+            b1.push_back(num2[i]);
+        }
+        for(int i=bp[0]+1;i<num2.length()-1;i++){
+            b2.push_back(num2[i]);
+        }
+
+        int A1=stoi(a1);
+        int A2=stoi(a2);
+        int B1=stoi(b1);
+        int B2=stoi(b2);
+
+       int X1 = A1*B1 - A2*B2;
+       int X2 = A2*B1 + A1*B2;
+
+       string res=to_string(X1)+'+'+to_string(X2)+'i';
+
+       return res;
+
+
+
+    }
+};
